@@ -7,3 +7,14 @@
 -- these lines here.
 
 
+CREATE TABLE player (
+                player_id SERIAL PRIMARY KEY,
+                player_name VARCHAR(25) NOT NULL,
+                time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+
+
+CREATE TABLE match  ( match_id SERIAL PRIMARY KEY,
+                winner_id INTEGER REFERENCES player(player_id),
+                loser_id INTEGER REFERENCES player(player_id)
+        );
